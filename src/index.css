@@ -1,0 +1,23 @@
+@import url("https://fonts.googleapis.com/css2?family=Cairo:wght@200..1000&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap");
+@import url('https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,100..900;1,100..900&display=swap');
+@import "flowbite";
+@import "tailwindcss";
+@plugin "flowbite-react/plugin/tailwindcss";
+@source "../.flowbite-react/class-list.json"; 
+
+
+@theme {
+    --font-cairo: 'Raleway', 'sans-serif';
+    --font-inter: 'Inter', 'sans-serif';
+    --color-primary: #1c1b1c;
+    --color-primaryDark2: #333333;
+    --color-secondary: #dc143c;
+
+}
+
+/* Default body styles */
+@layer base {
+  body {
+    @apply bg-primary font-inter text-white scroll-smooth; /* Black background, white text, Poppins font */
+  }
+}
