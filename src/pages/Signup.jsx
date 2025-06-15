@@ -9,13 +9,11 @@ import axios from "axios";
 import { Spinner } from "flowbite-react";
 import { useNavigate } from "react-router-dom";
 
-
 const Signup = () => {
   const [visible, setIsVisible] = useState(false);
   const [confirmVisible, setConfirmVisible] = useState(false);
   const [openModal, setOpenModal] = useState(false);
   const [loading, setIsLoading] = useState(false);
-  
 
   const [formData, setFormData] = useState({
     email: "",
@@ -40,10 +38,9 @@ const Signup = () => {
         }
       );
       setOpenModal(true);
-      console.log("Signup successful:", response.data);
+
       setIsLoading(false);
     } catch (error) {
-      console.error("Signup failed:", error.response || error.message);
       toast.error(
         JSON.stringify(error.response.data.detail) || "Signup failed"
       );
@@ -51,7 +48,7 @@ const Signup = () => {
     }
   };
 
-  const navigate = useNavigate()
+  const navigate = useNavigate();
 
   return (
     <section className="h-screen w-full mx-auto flex flex-col items-center justify-center bg-slate-900 py-2 px-2 lg:px-4">
@@ -195,7 +192,12 @@ const Signup = () => {
 
       <div className="flex gap-x-4 text-sm font-cairo text-gray-200 items-center justify-center mt-4 ">
         <span>Already have an account?</span>
-        <button onClick={() => navigate("/auth/login")} className="text-secondary text-lg cursor-pointer">Sign In</button>
+        <button
+          onClick={() => navigate("/auth/login")}
+          className="text-secondary text-lg cursor-pointer"
+        >
+          Sign In
+        </button>
       </div>
     </section>
   );

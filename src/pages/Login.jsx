@@ -6,12 +6,49 @@ import axios from "axios";
 import { useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
 import { Spinner } from "flowbite-react";
+import { Modal, ModalBody, ModalHeader } from "flowbite-react";
+import { FaRegCheckCircle } from "react-icons/fa";
 
 const Login = () => {
   const [visible, setIsVisible] = useState(false);
+  const [openModal, setOpenModal] = useState(false);
   const [loading, setIsLoading] = useState(false);
+  const [loadingForget, setIsLoadingForget] = useState(false);
   const [formData, setFormData] = useState({ email: "", password: "" });
   const navigate = useNavigate();
+
+  const handlePasswordReset = async (e) => {
+    e.preventDefault();
+    setIsLoadingForget(true)
+    const url = "https://tattooapp.onrender.com/auth/users/reset_password/";
+    const email = formData.email;
+    if (!email) {
+      toast.error("Please enter your email and try again");
+    }
+    try {
+      const response = await axios.post(
+        url,
+        {
+          email: email,
+        },
+        {
+          headers: {
+            "Content-Type": "application/json",
+            Accept: "application/json",
+          },
+        }
+      );
+      if (response.status === 204) {
+        console.log("Password reset request success full");
+        console.log(response.data);
+        setIsLoadingForget(false)
+        setOpenModal(true);
+      }
+    } catch (error) {
+      console.log(error.response);
+      setIsLoadingForget(false)
+    }
+  };
 
   const handleLogin = async (e) => {
     e.preventDefault();
@@ -31,10 +68,6 @@ const Login = () => {
       navigate("/");
       setIsLoading(false);
     } catch (error) {
-      console.log(
-        "Login failed:",
-        error.response.data.detail || "Login failed. Please try again."
-      );
       toast.error(
         error.response.data.detail || "Login failed. Please try again"
       );
@@ -46,7 +79,7 @@ const Login = () => {
     <section className="h-screen w-full mx-auto flex flex-col items-center justify-center bg-slate-900 py-8  px-2 lg:px-4">
       <div className="w-full flex items-start py-6 mb-2 md:w-[550px] lg:w-[600px] ">
         <h1 className="text-3xl font-semibold font-cairo text-white py-2">
-          Sign Up
+          Sign in
         </h1>
       </div>
       <form
@@ -106,8 +139,21 @@ const Login = () => {
           )}
         </button>
 
-        <button className="text-sm font-semibold font-cairo text-secondary/70 cursor-pointer">
-          Forgot Password?
+        <button
+          onClick={(e) => handlePasswordReset(e)}
+          className="text-sm font-semibold font-cairo text-secondary/70 cursor-pointer"
+        >
+          {loadingForget ? (
+            <div className="flex gap-3 items-center justify-center">
+              <Spinner
+                color="info"
+                aria-label="Info spinner example"
+                size="md"
+              />
+            </div>
+          ) : (
+            `Forgot password`
+          )}
         </button>
       </form>
 
@@ -120,6 +166,24 @@ const Login = () => {
           Sign Up
         </button>
       </div>
+
+      <Modal
+        show={openModal}
+        size="md"
+        onClose={() => setOpenModal(false)}
+        popup
+      >
+        <ModalHeader />
+        <ModalBody>
+          <div className="text-center">
+            <FaRegCheckCircle className="mx-auto mb-4 h-14 w-14 text-green-300" />
+            <h3 className="mb-5 text-sm font-normal text-gray-200 ">
+              A reset link has been sent to your email. <br /> Click on it to
+              reset your password
+            </h3>
+          </div>
+        </ModalBody>
+      </Modal>
     </section>
   );
 };

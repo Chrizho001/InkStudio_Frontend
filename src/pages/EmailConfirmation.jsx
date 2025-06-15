@@ -1,13 +1,17 @@
 import axios from "axios";
 import { useNavigate, useParams } from "react-router-dom";
 import { toast } from "react-toastify";
+import { Spinner } from "flowbite-react";
+import { useState } from "react";
 
 const EmailConfirmation = () => {
   const { uid, token } = useParams(); // get uid/token from URL
   const navigate = useNavigate();
+  const [loading, setIsLoading] = useState(false);
 
   const handleActivate = async () => {
     const url = "https://tattooapp.onrender.com/auth/users/activation/";
+    setIsLoading(true);
     try {
       const response = await axios.post(
         url,
@@ -16,14 +20,16 @@ const EmailConfirmation = () => {
       );
 
       if (response.status === 204) {
-        console.log("Account activated successfully");
         toast.success("Account activated successfully!");
+        setIsLoading(false);
         navigate("/auth/login");
       }
     } catch (error) {
-      console.log("Activation failed:", error.response.data || error.message);
-
-      toast.error("Activation failed. Please try again.");
+      toast.error(
+        error.response.data.detail ||
+          "Account activation failed, please try again"
+      );
+      setIsLoading(false);
     }
   };
 
@@ -40,7 +46,17 @@ const EmailConfirmation = () => {
           onClick={handleActivate}
           className="px-6 py-3 lg:w-fit font-semibold text-lg text-gray-200 font-cairo bg-secondary rounded-full mt-4 hover:scale-110 transition-transform duration-300"
         >
-          Activate your account
+          {loading ? (
+            <div className="flex gap-3 items-center justify-center">
+              <Spinner
+                color="info"
+                aria-label="Info spinner example"
+                size="md"
+              />
+            </div>
+          ) : (
+            `Activate your account`
+          )}
         </button>
       </div>
     </section>

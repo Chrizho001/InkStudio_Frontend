@@ -19,7 +19,7 @@ const App = () => {
           <Route path="signup" element={<Signup />} />
           <Route path="activate/:uid/:token" element={<EmailConfirmation />} />
           <Route path="reset-password-confirm" element={<ResetPasswordConfirm />} />
-          <Route path="reset-password" element={<ResetPassword />} />
+          <Route path="password/reset/confirm/:uid/:token" element={<ResetPassword />} />
         </Route>
         {/* Protected Routes */}
         <Route element={<ProtectedRoute />}>
