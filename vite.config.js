@@ -11,6 +11,6 @@ export default defineConfig({
     // hmr: {
     //   host: '42d7-197-210-54-25.ngrok-free.app',
     // },
-     allowedHosts: ['ec92-102-90-103-57.ngrok-free.app'],
+     allowedHosts: ['dcbd-102-90-101-133.ngrok-free.app'],
   },
 });

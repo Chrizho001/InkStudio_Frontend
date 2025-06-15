@@ -6,10 +6,10 @@ const Hero = () => {
     <div  className="container flex flex-col md:px-2.5 lg:px-3 ">
       <Navbar />
       {/* main hero section */}
-      <div className="flex flex-col md:flex-row justify-center items-center">
+      <div className="flex flex-col md:flex-row justify-center items-center sm:gap-x-8">
         {/* Hero text div */}
-        <div className="flex flex-col px-2 mt-10 font-cairo w-full md:w-[370px] lg:w-[400px] lg:gap-y-3">
-          <h1 className="text-[80px] font-semibold relative">
+        <div className="flex flex-col px-2 mt-10 font-cairo w-full md:w-[370px] lg:w-[500px] lg:gap-y-3">
+          <h1 className="text-[80px] font-semibold relative lg:text-[90px]">
             <span className="absolute -top-7 left-0 text-secondary text-[40px] font-semibold">
               Ink
             </span>
@@ -19,13 +19,13 @@ const Hero = () => {
             </span>
           </h1>
 
-          <span className="py-4 text-sm font-normal text-white leading-normal ">
+          <span className="py-4 text-sm font-normal text-white leading-normal sm:text-[16px]  ">
             Dive into our world of ink, explore stunning designs, and book your
             session to wear your art proudly—book a session to start your
             journey!
           </span>
           <div className="mt-6 ">
-            <button className="text-xl font-semibold font-cairo py-2 px-3 bg-secondary ">
+            <button className="text-xl font-semibold font-cairo py-2 px-3 bg-secondary hover:scale-110 transition-transform duration-300">
               Book a session
             </button>
           </div>

@@ -1,4 +1,3 @@
-// import { Menu, Transition } from "@headlessui/react";
 import {
   Menu,
   MenuButton,
@@ -8,26 +7,30 @@ import {
 } from "@headlessui/react";
 import { Fragment } from "react";
 import { HiOutlineMenuAlt3 } from "react-icons/hi";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 const navigation = [
-  { name: "Home", to: "/", type: "route" },
+  { name: "Home", to: "#home", type: "anchor" },
   { name: "About", to: "#about", type: "anchor" },
   { name: "Services", to: "#services", type: "anchor" },
   { name: "Bookings", to: "#booking", type: "anchor" },
   { name: "Testimonial", to: "#testimonial", type: "anchor" },
-  { name: "Login", to: "auth/login", type: "route" },
+  { name: "Sign out", to: "auth/login", type: "route", duty: "auth" },
 ];
 
 const scrollToSection = (id) => {
-    const section = document.getElementById(id);
-    if (section) section.scrollIntoView({ behavior: "smooth" });
-  };
-
-
-
+  const section = document.getElementById(id);
+  if (section) section.scrollIntoView({ behavior: "smooth" });
+};
 
 export default function DropdownMenu() {
+  const navigate = useNavigate();
+
+  const handleLogout = () => {
+    localStorage.removeItem("access_token");
+    localStorage.removeItem("refresh_token");
+    navigate("/auth/login");
+  };
   return (
     <div className="relative inline-block text-left z-50">
       <Menu as="div" className="relative">
@@ -62,7 +65,6 @@ export default function DropdownMenu() {
                       </button>
                     ) : (
                       <Link
-                        to={item.to}
                         className={`block px-4 py-2 text-sm rounded-lg 
                          data-focus:bg-gray-100 data-focus:text-secondary text-gray-700
                       `}
@@ -73,6 +75,14 @@ export default function DropdownMenu() {
                   }
                 </MenuItem>
               ))}
+              <div className="p-2">
+                <button
+                  onClick={handleLogout}
+                  className="px-4 py-2 bg-blue-800 text-white rounded text-sm"
+                >
+                  Logout
+                </button>
+              </div>
             </div>
           </MenuItems>
         </Transition>

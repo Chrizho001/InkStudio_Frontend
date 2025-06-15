@@ -20,4 +20,5 @@
   body {
     @apply bg-primary font-inter text-white scroll-smooth; /* Black background, white text, Poppins font */
   }
+  
 }

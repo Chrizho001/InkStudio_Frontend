@@ -11,23 +11,26 @@ import tattooMan from "../assets/tattoo_man.png";
 
 const Services = () => {
   return (
-    <section id="#services" className="container flex flex-col px-2 py-16">
-      <h1 className="text-4xl font-bold text-white font-cairo text-center">
-        Our Services
-      </h1>
-      <div className="flex py-2 space-x-2 items-center justify-center">
-        <div className="w-2 h-2 rounded-full bg-secondary"></div>
-        <div className="w-2 h-2 rounded-full bg-secondary"></div>
-        <div className="w-2 h-2 rounded-full bg-secondary"></div>
+    <section id="#services" className="container flex flex-col justify-center items-center px-2 py-12">
+      <div className="py-6 md:w-[550px] flex flex-col items-center justify-center">
+        <h1 className="text-4xl font-bold text-white font-cairo text-center">
+          Our Services
+        </h1>
+        <div className="flex py-2 space-x-2 items-center justify-center">
+          <div className="w-2 h-2 rounded-full bg-secondary"></div>
+          <div className="w-2 h-2 rounded-full bg-secondary"></div>
+          <div className="w-2 h-2 rounded-full bg-secondary"></div>
+        </div>
+        <p className="text-sm text-gray-300 font-light py-4 text-center lg:text-[16px]">
+          Ink Studio is a tattoo shop located at the east coast. We offer a
+          broad range of services aimed at satisfying our patrons.
+        </p>
       </div>
-      <p className="text-sm text-gray-300 font-light py-4 text-center">
-        Ink Studio is a tattoo shop located at the east coast. We offer a broad
-        range of services aimed at satisfying our patrons.
-      </p>
-      <div className="w-full flex flex-col ">
-        <div className="flex flex-col lg:flex-row space-y-6  w-full">
+
+      <div className="w-full flex flex-col items-center justify-center md:mt-4 py-4">
+        <div className="flex flex-col sm:flex-row space-y-6 items-center justify-center  w-full">
           {/* Services List */}
-          <div className="grid grid-cols-1 lg:grid-cols-2 py-4 mt-2.5 place-content-center gap-x-3 gap-y-4 text-[14px] text-sm  sm:text-sm px-2">
+          <div className="grid grid-cols-1 sm:grid-cols-2 py-4 mt-2.5 place-content-center gap-x-3 gap-y-4 text-sm  sm:text-[12px] px-2 md:w-[600px]">
             {/* first div */}
             <div className="flex flex-col">
               <div className="flex flex-row items-center gap-x-2.5 py-3 ">
@@ -37,7 +40,8 @@ const Services = () => {
                 </span>
               </div>
               <p className="font-normal text-gray-300 font-cairo text-left">
-                for a premium result at our saloon we combine modern and traditional methods.
+                for a premium result at our saloon we combine modern and
+                traditional methods.
               </p>
             </div>
 
@@ -82,7 +86,7 @@ const Services = () => {
             </div>
           </div>
           {/* service image */}
-          <div className="relative flex items-center justify-center mt-4 w-full">
+          <div className="relative flex items-center justify-center mt-4 w-full md:w-fit">
             <img
               src={tattooMan}
               width={350}

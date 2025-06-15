@@ -19,12 +19,12 @@ const Testimonial = () => {
           </div>
         </div>
         {/* Carouse */}
-        <div className="container mx-auto h-[70%] flex flex-col py-8 items-center justify-center text-center px-3 grayscale-0">
+        <div className="container mx-auto h-[70%] flex flex-col py-8 items-center justify-center text-center px-3">
           <Carousel
             slideInterval={3000}
             leftControl=" "
             rightControl=" "
-            className="w-full"
+            className="md:w-[600px] lg:w-[650px] "
             indicators={false}
           >
             <div className="flex w-full h-[200px] items-center justify-center space-x-4">

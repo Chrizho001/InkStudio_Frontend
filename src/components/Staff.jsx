@@ -4,8 +4,8 @@ import staff3 from "../assets/girl_staff.webp";
 
 const Staff = () => {
   return (
-    <section  className="container flex flex-col items-center justify-center my-16 py-4 overflow-x-scroll">
-      <div className="flex flex-col">
+    <section  className="container flex flex-col items-center justify-center my-16 py-4">
+      <div className="flex flex-col py-4">
         <h1 className="text-2xl font-bold text-white font-cairo text-center uppercase">
           our staff
         </h1>
@@ -16,11 +16,11 @@ const Staff = () => {
         </div>
       </div>
 
-      <div className="flex flex-row py-4 px-2 w-full gap-x-3 gap-y-10 items-center justify-center overflow-x-scroll">
+      <div className="flex flex-row py-4 px-2 w-full gap-x-3 gap-y-10 items-center justify-center">
         <div className="flex flex-col text-center items-center">
           <img
             src={staff1}
-            className="object-cover w-[280px] h-[220px] grayscale"
+            className="object-cover w-[280px] h-[220px] sm:h-[280px] md:h-[320px]  grayscale"
             alt="staff image"
           />
           <span className="text-sm font-semibold font-cairo mt-4">
@@ -31,7 +31,7 @@ const Staff = () => {
         <div className="flex flex-col text-center items-center">
           <img
             src={staff2}
-            className="object-cover w-[280px] h-[220px] grayscale"
+            className="object-cover w-[280px] h-[220px] sm:h-[280px] md:h-[320px] grayscale"
             alt="staff image"
           />
           <span className="text-sm font-semibold font-cairo mt-4">
@@ -42,7 +42,7 @@ const Staff = () => {
         <div className="flex flex-col text-center items-center">
           <img
             src={staff3}
-            className="object-cover w-[280px] h-[220px] grayscale"
+            className="object-cover w-[280px] h-[220px] sm:h-[280px] md:h-[320px] grayscale"
             alt="staff image"
           />
           <span className="text-sm font-semibold font-cairo mt-4">
