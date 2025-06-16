@@ -5,6 +5,7 @@ import Signup from "./pages/Signup";
 import EmailConfirmation from "./pages/EmailConfirmation"
 import ResetPassword from './pages/ResetPassword'
 import ResetPasswordConfirm from "./pages/ResetPasswordConfirm";
+import Welcome from "./pages/Welcome";
 import { ToastContainer} from 'react-toastify';
 import ProtectedRoute from "./components/ProtectedRoute";
 
@@ -16,6 +17,7 @@ const App = () => {
       <Routes>
         <Route path="/auth">
           <Route path="login" element={<Login />} />
+          <Route path="welcome" element={<Welcome />} />
           <Route path="signup" element={<Signup />} />
           <Route path="activate/:uid/:token" element={<EmailConfirmation />} />
           <Route path="reset-password-confirm" element={<ResetPasswordConfirm />} />

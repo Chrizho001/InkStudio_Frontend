@@ -125,7 +125,7 @@ const Login = () => {
           </button>
         </div>
 
-        <button className="px-6 py-3 w-full font-semibold text-lg text-gray-200 font-cairo bg-secondary rounded-full mt-4 hover:scale-110 transition-transform duration-300">
+        <button className="px-6 py-3 w-full font-semibold text-lg text-gray-200 font-cairo bg-secondary rounded-full mt-4 hover:scale-105 transition-transform duration-300">
           {loading ? (
             <div className="flex gap-3 items-center justify-center">
               <Spinner
