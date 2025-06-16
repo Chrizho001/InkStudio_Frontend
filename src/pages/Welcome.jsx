@@ -21,7 +21,7 @@ const Welcome = () => {
           </div>
 
           <div className="w-full h-[350px] bg-gray-200 opacity-100 rounded-tr-[140px] flex items-center justify-center py-3">
-            <div className="flex flex-col gap-y-4 justify-center py-3 text-black font-cairo px-3 ">
+            <div className="flex flex-col gap-y-4 justify-center py-3 text-black font-cairo px-3 py-4 ">
               <h3 className="text-2xl font-bold ">Explore</h3>
               <p className="text-sm font-semibold">
                 Explore unique tattoo designs, connect with top artists, and
