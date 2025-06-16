@@ -2,8 +2,12 @@ import hero_image from "../assets/hero1.png";
 import Navbar from "./Navbar";
 
 const Hero = () => {
+  const scrollToSection = () => {
+    const section = document.getElementById("#booking");
+    if (section) section.scrollIntoView({ behavior: "smooth" });
+  };
   return (
-    <div  className="container flex flex-col md:px-2.5 lg:px-3 ">
+    <div className="container flex flex-col md:px-2.5 lg:px-3 ">
       <Navbar />
       {/* main hero section */}
       <div className="flex flex-col md:flex-row justify-center items-center sm:gap-x-8">
@@ -25,7 +29,7 @@ const Hero = () => {
             journey!
           </span>
           <div className="mt-6 ">
-            <button className="text-xl font-semibold font-cairo py-2 px-3 bg-secondary hover:scale-110 transition-transform duration-300">
+            <button onClick={scrollToSection} className="text-xl font-semibold font-cairo py-2 px-3 bg-secondary hover:scale-110 transition-transform duration-300">
               Book a session
             </button>
           </div>

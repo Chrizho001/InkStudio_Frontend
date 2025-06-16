@@ -2,6 +2,10 @@ import aboutPic from "../assets/aboutPic.jpg";
 import aboutPic2 from "../assets/aboutPic2.jpg";
 
 const About = () => {
+  const scrollToSection = () => {
+    const section = document.getElementById("#booking");
+    if (section) section.scrollIntoView({ behavior: "smooth" });
+  };
   return (
     <section id="#about" className="w-full flex flex-col lg:flex-row  px-2 py-16 bg-primaryDark2">
       <div className="container mx-auto flex flex-col items-center justify-center lg:flex-row-reverse lg:gap-x-8 lg:py-8">
@@ -19,7 +23,7 @@ const About = () => {
             Whether you're getting your first tattoo or adding to a collection,
             we’re here to make it unforgettable.
           </p>
-          <button className="text-sm w-fit font-cairo py-2 px-3 my-4 bg-secondary font-semibold lg:text-[16px] hover:scale-110 transition-transform duration-300">
+          <button onClick={scrollToSection} className="text-sm w-fit font-cairo py-2 px-3 my-4 bg-secondary font-semibold lg:text-[16px] hover:scale-110 transition-transform duration-300">
             Book a session
           </button>
         </div>
