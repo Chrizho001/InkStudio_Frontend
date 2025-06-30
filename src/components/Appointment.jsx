@@ -33,7 +33,7 @@ const Appointment = () => {
         error.response.data || error.message
       );
       toast.error(
-        JSON.stringify(error.response.data.detail) || "Signup failed"
+        JSON.stringify(error.response.data.detail) || "Failed. Please ensure you put in correct apointment data"
       );
       setIsLoading(false);
     }
