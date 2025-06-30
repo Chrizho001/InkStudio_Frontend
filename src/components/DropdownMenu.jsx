@@ -15,7 +15,6 @@ const navigation = [
   { name: "Services", to: "#services", type: "anchor" },
   { name: "Bookings", to: "#booking", type: "anchor" },
   { name: "Testimonial", to: "#testimonial", type: "anchor" },
-  { name: "Sign out", to: "auth/login", type: "route", duty: "auth" },
 ];
 
 const scrollToSection = (id) => {
