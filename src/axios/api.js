@@ -59,7 +59,7 @@ api.interceptors.response.use(
     const originalRequest = error.config;
 
     // Avoid infinite loop
-    if (error.response?.status === 401 && !originalRequest._retry) {
+    if (error.response.status === 401 && !originalRequest._retry) {
       originalRequest._retry = true;
       const newAccessToken = await refreshToken();
       if (newAccessToken) {
