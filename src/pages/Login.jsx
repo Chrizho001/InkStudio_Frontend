@@ -20,7 +20,7 @@ const Login = () => {
   const handlePasswordReset = async (e) => {
     e.preventDefault();
     setIsLoadingForget(true)
-    const url = "https://tattooapp.onrender.com/auth/users/reset_password/";
+    const url = "https://inkstudio-b3au.onrender.com/auth/users/reset_password/";
     const email = formData.email;
     if (!email) {
       toast.error("Please enter your email and try again");
@@ -53,7 +53,7 @@ const Login = () => {
   const handleLogin = async (e) => {
     e.preventDefault();
     setIsLoading(true);
-    const url = "https://tattooapp.onrender.com/auth/jwt/create/";
+    const url = "https://inkstudio-b3au.onrender.com/auth/jwt/create/";
 
     try {
       const response = await axios.post(url, formData, {

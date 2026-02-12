@@ -5,8 +5,12 @@ import flowbiteReact from "flowbite-react/plugin/vite";
 
 // https://vite.dev/config/
 export default defineConfig({
-  plugins: [react(), tailwindcss(), flowbiteReact()],
-  server: {
-    port: 3000,
-  },
+    plugins: [react(), tailwindcss(), flowbiteReact()],
+    server: {
+        port: 3000,
+        watch: {
+            usePolling: true,
+            interval: 300,
+        },
+    },
 });

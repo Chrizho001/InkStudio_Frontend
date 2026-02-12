@@ -10,7 +10,7 @@ const EmailConfirmation = () => {
   const [loading, setIsLoading] = useState(false);
 
   const handleActivate = async () => {
-    const url = "https://tattooapp.onrender.com/auth/users/activation/";
+    const url = "https://inkstudio-b3au.onrender.com/auth/users/activation/";
     setIsLoading(true);
     try {
       const response = await axios.post(
